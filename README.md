@@ -1,6 +1,3 @@
-# eliabungata.github.io
 
-Welcome to my portfolio! I'm an Electrical Engineering student passionate about industrial control systems and automation.
+Welcome! I'm an Electrical Engineering student passionate about industrial control systems and automation. Kindly check my portifolio to explore my skills and projects.
 
-## Contact
-- 0747199336 or 0611466591
