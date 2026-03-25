@@ -1,31 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Skills</title>
+    <title>Projects</title>
     <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
 </head>
+
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar">
-    <h2 class="logo">Eliabu</h2>
-    <ul class="nav-links">
-        <li><a href="index.html">About Me</a></li>
+<div class="menu-icon" onclick="toggleMenu()">
+    ☰
+</div>
+
+<nav id="menu">
+    <ul>
+        <li><a href="index.html">About</a></li>
         <li><a href="skills.html">Skills</a></li>
         <li><a href="projects.html">Projects</a></li>
         <li><a href="contact.html">Contact</a></li>
     </ul>
 </nav>
 
-<!-- CONTENT -->
-<section class="container">
-    <h1>My Skills</h1>
-    <ul>
-        <li>MATLAB & Simulink</li>
-        <li>Power Electronics</li>
-        <li>HTML & CSS</li>
-    </ul>
+<section>
+    <h1>Projects</h1>
+
+    <h3>Rectifier Control System</h3>
+    <p>Improved power factor and reduced THD.</p>
+
+    <img src="images/project1.jpg" width="300">
+
+    <h3>PLC Automation</h3>
+    <p>Machine control logic design.</p>
+
 </section>
 
 </body>
