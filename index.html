@@ -1,14 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>About Me</title>
+    <title>About</title>
+
+    <!-- Link CSS -->
     <link rel="stylesheet" href="style.css">
+
+    <!-- Link JavaScript -->
+    <script defer src="script.js"></script>
 </head>
 
 <body>
 
-<!-- Navigation Bar -->
-<nav>
+<!-- Hamburger icon -->
+<div class="menu-icon" onclick="toggleMenu()">
+    ☰
+</div>
+
+<!-- Hidden navigation menu -->
+<nav id="menu">
     <ul>
         <li><a href="index.html">About</a></li>
         <li><a href="skills.html">Skills</a></li>
@@ -17,10 +27,12 @@
     </ul>
 </nav>
 
-<!-- Page Content -->
+<!-- Page content -->
 <section>
     <h1>About Me</h1>
-    <p>This is where you describe yourself.</p>
+    <p>I focus on industrial control systems and automation.</p>
+
+    <img src="images/profile.jpg" width="200">
 </section>
 
 </body>
