@@ -57,3 +57,13 @@ nav ul li a:hover {
 section {
     padding: 20px;
 }
+section img {
+    display: block;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+section h2 {
+    margin-top: 20px;
+    color: #333;
+}
