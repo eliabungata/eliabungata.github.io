@@ -1,233 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Eliabu Ngata — Portfolio</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-<style>
-*{margin:0;padding:0;box-sizing:border-box;}
-
-:root{
-  --dark:#1c1c1e;
-  --mid:#3a3a3c;
-  --accent:#6b8f71;
-  --light-bg:#f2f0ed;
-  --white:#fff;
-  --text:#2c2c2e;
-  --muted:#888;
-}
-
-html{scroll-behavior:smooth;}
-
-body{
-  font-family:'Montserrat',sans-serif;
-  background:var(--light-bg);
-  color:var(--text);
-}
-
-/* ===== STICKY NAV ===== */
-#sticky-nav{
-  position:fixed;
-  top:0;
-  width:100%;
-  background:white;
-  display:flex;
-  justify-content:center;
-  gap:40px;
-  padding:15px;
-  border-bottom:1px solid #ddd;
-  opacity:0;
-  pointer-events:none;
-  transition:0.3s;
-}
-#sticky-nav.visible{
-  opacity:1;
-  pointer-events:auto;
-}
-#sticky-nav a{
-  text-decoration:none;
-  font-size:11px;
-  letter-spacing:2px;
-  text-transform:uppercase;
-  color:var(--mid);
-}
-
-/* ===== HERO (ABOUT) ===== */
-#about{
-  position:relative;
-  min-height:55vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:space-between;
-  background:url('https://images.unsplash.com/photo-1568992687947-868a62a9f521?w=1600&q=80') center/cover no-repeat;
-}
-
-#about::before{
-  content:'';
-  position:absolute;
-  inset:0;
-  background:linear-gradient(
-    180deg,
-    rgba(10,12,18,0.78),
-    rgba(10,12,18,0.45),
-    rgba(10,12,18,0.72)
-  );
-}
-
-/* hero content */
-.hero-content{
-  position:relative;
-  z-index:1;
-  display:flex;
-  align-items:center;
-  gap:30px;
-  padding:60px 80px 0;
-}
-
-.hero-avatar{
-  width:130px;
-  height:130px;
-  border-radius:50%;
-  border:3px solid rgba(255,255,255,0.8);
-}
-
-.hero-text h1{
-  font-family:'Cormorant Garamond',serif;
-  font-size:56px;
-  letter-spacing:3px;
-  color:white;
-}
-
-.hero-subtitle{
-  margin-top:10px;
-  font-size:20px;
-  color:rgba(255,255,255,0.9);
-  font-style:italic;
-}
-
-/* hero nav */
-.hero-nav-wrap{
-  position:relative;
-  z-index:1;
-  padding-bottom:30px;
-}
-
-.hero-nav-rule{
-  width:320px;
-  height:1px;
-  background:rgba(255,255,255,0.25);
-  margin:auto;
-  margin-bottom:15px;
-}
-
-.hero-nav{
-  display:flex;
-  justify-content:center;
-  gap:40px;
-}
-
-.hero-nav a{
-  text-decoration:none;
-  color:rgba(255,255,255,0.8);
-  font-size:11px;
-  letter-spacing:2px;
-}
-
-/* ===== ABOUT TEXT ===== */
-.about-body{
-  background:white;
-  padding:60px 80px;
-}
-
-/* ===== OTHER SECTIONS ===== */
-section{
-  padding:80px;
-}
-
-#skills{background:white;}
-#projects{background:#eee;}
-#contact{background:#ddd;}
-
-/* ===== RESPONSIVE ===== */
-@media(max-width:768px){
-  .hero-content{padding:30px;}
-  .hero-text h1{font-size:34px;}
-  section{padding:40px;}
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<!-- STICKY NAV -->
-<nav id="sticky-nav">
-  <a href="#about">About</a>
-  <a href="#skills">Skills</a>
-  <a href="#projects">Projects</a>
-  <a href="#contact">Reach Out</a>
-</nav>
+    <!-- HERO SECTION (Replace images here) -->
+    <header class="hero">
+        <div class="hero-content">
+            <!-- REPLACE: Change 'profile.jpg' to your photo name -->
+            <img src="profile.jpg" alt="Profile" class="profile-pic">
+            
+            <h1>[Your Name]</h1>
+            <p class="subtitle">[Your Profession]</p>
 
-<!-- ABOUT HERO -->
-<section id="about">
+            <nav class="hero-nav">
+                <ul>
+                    <li><a href="#about">ABOUT ME</a></li>
+                    <li><a href="#skills">SKILLS</a></li>
+                    <li><a href="#projects">PROJECTS</a></li>
+                    <li><a href="#reach-out">REACH OUT</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-<div class="hero-content">
-  <img src="https://i.pravatar.cc/150?img=11" class="hero-avatar">
+    <!-- CONTENT SECTIONS -->
+    <section id="about" class="content-section">
+        <h2>ABOUT ME</h2>
+        <p>Your story goes here...</p>
+    </section>
 
-  <div class="hero-text">
-    <h1>ELIABU NGATA</h1>
-    <p class="hero-subtitle">Industrial Control Systems & Automation</p>
-  </div>
-</div>
+    <section id="skills" class="content-section">
+        <h2>SKILLS</h2>
+        <p>List your skills here...</p>
+    </section>
 
-<div class="hero-nav-wrap">
-  <div class="hero-nav-rule"></div>
-  <div class="hero-nav">
-    <a href="#about">About Me</a>
-    <a href="#skills">Education</a>
-    <a href="#projects">Areas of Practice</a>
-    <a href="#contact">Reach Out</a>
-  </div>
-</div>
+    <section id="projects" class="content-section">
+        <h2>PROJECTS</h2>
+        <p>Showcase your work here...</p>
+    </section>
 
-</section>
-
-<!-- ABOUT BODY -->
-<div class="about-body">
-  <h2>About Me</h2>
-  <p>Focused on industrial automation, PLC systems, and control engineering.</p>
-</div>
-
-<!-- SKILLS -->
-<section id="skills">
-  <h2>Skills</h2>
-</section>
-
-<!-- PROJECTS -->
-<section id="projects">
-  <h2>Projects</h2>
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
-  <h2>Reach Out</h2>
-</section>
-
-<script>
-const hero = document.getElementById('about');
-const nav = document.getElementById('sticky-nav');
-
-window.addEventListener('scroll', () => {
-  const rect = hero.getBoundingClientRect();
-  if(rect.bottom <= 0){
-    nav.classList.add('visible');
-  } else {
-    nav.classList.remove('visible');
-  }
-});
-</script>
+    <section id="reach-out" class="content-section">
+        <h2>REACH OUT</h2>
+        <p>Contact details go here...</p>
+    </section>
 
 </body>
 </html>
