@@ -468,7 +468,7 @@
       <div class="contact-cards">
 
         <!-- ① Phone — opens the phone dialler app -->
-        <a class="contact-card" href="tel:+1234567890">
+        <a class="contact-card" href="tel:+255 747 199 336">
           <div class="cc-icon">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2
@@ -485,35 +485,27 @@
         </a>
 
         <!-- ② Email — opens Gmail / default mail app -->
-        <a class="contact-card" href="/cdn-cgi/l/email-protection#1960766c6b7778747c597e74787075377a7674">
+        <a class="contact-card" href="mailto:eliabungata@gmail.com">
           <div class="cc-icon">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16
-                       c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6
-                       l8 5 8-5v2z"/>
+              <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16 c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6 l8 5 8-5v2z"/>
             </svg>
           </div>
           <div>
             <div class="cc-label">Email</div>
-            <!--  ↓ Replace with your actual email  -->
-            <div class="cc-value"><span class="__cf_email__" data-cfemail="d7aeb8a2a5b9b6bab297b0bab6bebbf9b4b8ba">eliabungata@gmail.com</span></div>
+            <div class="cc-value">eliabungata@gmail.com</div>
           </div>
         </a>
 
         <!-- ③ LinkedIn — opens LinkedIn app or website -->
-        <a class="contact-card" href="https://www.linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer">
+        <a class="contact-card" href="https://www.linkedin.com/in/eliabungata" target="_blank" rel="noopener noreferrer">
           <div class="cc-icon">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.0\04-1.85-3.04
-                       -1.85 0-2.13 1.45-2.13 2.94v5.67H9.37V9h3.41v1.56h.05
-                       c.47-.9 1.63-1.85 3.36-1.85 3.59 0 4.26 2.37 4.26 5.44v6.3z
-                       M5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12z
-                       M7.12 20.45H3.55V9h3.57v11.45z"/>
+              <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04 -1.85 0-2.13 1.45-2.13 2.94v5.67H9.37V9h3.41v1.56h.05 c.47-.9 1.63-1.85 3.36-1.85 3.59 0 4.26 2.37 4.26 5.44v6.3z M5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12z M7.12 20.45H3.55V9h3.57v11.45z"/>
             </svg>
           </div>
           <div>
             <div class="cc-label">LinkedIn</div>
-            <!--  ↓ Replace with your actual LinkedIn display text  -->
             <div class="cc-value">linkedin.com/in/eliabungata</div>
           </div>
         </a>
@@ -525,7 +517,7 @@
 
 <footer>© 2026 Eliabu Ngata — All rights reserved</footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   // Active nav highlight on scroll
   const sections = document.querySelectorAll('section[id]');
   const links    = document.querySelectorAll('.nav-link');
@@ -533,4 +525,16 @@
   const observer = new IntersectionObserver(entries => {
     entries.forEach(e => {
       if (e.isIntersecting) {
-        links.forEach(l => l.classList.remove('active'));
+        const id = e.target.getAttribute('id');
+        links.forEach(l => {
+          l.classList.remove('active');
+          if (l.getAttribute('href') === `#${id}`) {
+            l.classList.add('active');
+          }
+        });
+      }
+    }, { threshold: 0.5 });
+  });
+
+  sections.forEach(s => observer.observe(s));
+</script>
