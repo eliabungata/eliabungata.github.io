@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About — Eliabu Ngata</title>
+<title>Eliabu Ngata — Portfolio</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
 
@@ -18,8 +18,9 @@
   --white:#fff;
   --text:#2c2c2e;
   --muted:#888;
-  --nav-h:64px;
 }
+
+html{scroll-behavior:smooth;}
 
 body{
   font-family:'Montserrat',sans-serif;
@@ -27,21 +28,20 @@ body{
   color:var(--text);
 }
 
-/* ===== STICKY NAV (unchanged) ===== */
+/* ===== STICKY NAV ===== */
 #sticky-nav{
-  position:sticky;
+  position:fixed;
   top:0;
-  z-index:200;
-  background:var(--white);
-  height:var(--nav-h);
+  width:100%;
+  background:white;
   display:flex;
   justify-content:center;
-  align-items:center;
-  gap:48px;
+  gap:40px;
+  padding:15px;
   border-bottom:1px solid #ddd;
   opacity:0;
   pointer-events:none;
-  transition:0.25s;
+  transition:0.3s;
 }
 #sticky-nav.visible{
   opacity:1;
@@ -51,34 +51,29 @@ body{
   text-decoration:none;
   font-size:11px;
   letter-spacing:2px;
-  font-weight:600;
   text-transform:uppercase;
   color:var(--mid);
 }
-#sticky-nav a:hover{
-  color:var(--text);
-}
 
-/* ===== ABOUT HERO ===== */
-.about-page #about{
+/* ===== HERO (ABOUT) ===== */
+#about{
   position:relative;
-  min-height:50vh;
+  min-height:55vh;
   display:flex;
   flex-direction:column;
   justify-content:space-between;
   background:url('https://images.unsplash.com/photo-1568992687947-868a62a9f521?w=1600&q=80') center/cover no-repeat;
 }
 
-/* corrected overlay */
-.about-page #about::before{
+#about::before{
   content:'';
   position:absolute;
   inset:0;
   background:linear-gradient(
     180deg,
-    rgba(10,12,18,0.78) 0%,
-    rgba(10,12,18,0.45) 50%,
-    rgba(10,12,18,0.72) 100%
+    rgba(10,12,18,0.78),
+    rgba(10,12,18,0.45),
+    rgba(10,12,18,0.72)
   );
 }
 
@@ -88,8 +83,8 @@ body{
   z-index:1;
   display:flex;
   align-items:center;
-  gap:36px;
-  padding:50px 80px 0;
+  gap:30px;
+  padding:60px 80px 0;
 }
 
 .hero-avatar{
@@ -97,16 +92,13 @@ body{
   height:130px;
   border-radius:50%;
   border:3px solid rgba(255,255,255,0.8);
-  object-fit:cover;
 }
 
-/* improved typography */
 .hero-text h1{
   font-family:'Cormorant Garamond',serif;
   font-size:56px;
   letter-spacing:3px;
   color:white;
-  font-weight:400;
 }
 
 .hero-subtitle{
@@ -116,92 +108,69 @@ body{
   font-style:italic;
 }
 
-/* nav inside hero */
+/* hero nav */
 .hero-nav-wrap{
   position:relative;
   z-index:1;
-  padding:0 80px 30px;
+  padding-bottom:30px;
 }
 
 .hero-nav-rule{
   width:320px;
   height:1px;
-  margin:auto;
-  margin-bottom:18px;
   background:rgba(255,255,255,0.25);
+  margin:auto;
+  margin-bottom:15px;
 }
 
 .hero-nav{
   display:flex;
   justify-content:center;
-  gap:50px;
+  gap:40px;
 }
 
 .hero-nav a{
   text-decoration:none;
-  color:rgba(255,255,255,0.75);
+  color:rgba(255,255,255,0.8);
   font-size:11px;
   letter-spacing:2px;
-  text-transform:uppercase;
 }
 
-.hero-nav a:hover{
-  color:white;
-}
-
-/* ===== ABOUT BODY ===== */
+/* ===== ABOUT TEXT ===== */
 .about-body{
   background:white;
   padding:60px 80px;
 }
 
-.section-label{
-  font-size:11px;
-  letter-spacing:3px;
-  font-weight:700;
-  margin-bottom:10px;
+/* ===== OTHER SECTIONS ===== */
+section{
+  padding:80px;
 }
 
-.section-rule{
-  width:50px;
-  height:3px;
-  background:var(--mid);
-  margin-bottom:25px;
-}
-
-.about-tagline{
-  color:var(--accent);
-  font-weight:600;
-  margin-bottom:20px;
-}
-
-.about-body p{
-  max-width:750px;
-  line-height:1.8;
-  font-size:14px;
-}
+#skills{background:white;}
+#projects{background:#eee;}
+#contact{background:#ddd;}
 
 /* ===== RESPONSIVE ===== */
 @media(max-width:768px){
   .hero-content{padding:30px;}
-  .hero-nav-wrap{padding:20px;}
   .hero-text h1{font-size:34px;}
-  .about-body{padding:30px;}
+  section{padding:40px;}
 }
 </style>
 </head>
 
-<body class="about-page">
+<body>
 
-<!-- sticky nav -->
+<!-- STICKY NAV -->
 <nav id="sticky-nav">
-  <a href="about.html">About</a>
-  <a href="skills.html">Skills</a>
-  <a href="projects.html">Projects</a>
-  <a href="contact.html">Reach Out</a>
+  <a href="#about">About</a>
+  <a href="#skills">Skills</a>
+  <a href="#projects">Projects</a>
+  <a href="#contact">Reach Out</a>
 </nav>
 
-<!-- hero section -->
+<!-- ABOUT HERO -->
 <section id="about">
 
 <div class="hero-content">
@@ -216,32 +185,35 @@ body{
 <div class="hero-nav-wrap">
   <div class="hero-nav-rule"></div>
   <div class="hero-nav">
-    <a href="about.html">About Me</a>
-    <a href="skills.html">Education</a>
-    <a href="projects.html">Areas of Practice</a>
-    <a href="contact.html">Reach Out</a>
+    <a href="#about">About Me</a>
+    <a href="#skills">Education</a>
+    <a href="#projects">Areas of Practice</a>
+    <a href="#contact">Reach Out</a>
   </div>
 </div>
 
 </section>
 
-<!-- about content -->
+<!-- ABOUT BODY -->
 <div class="about-body">
-  <div class="section-label">About Me</div>
-  <div class="section-rule"></div>
-
-  <p class="about-tagline">
-    Focused on industrial automation, PLC systems, and control engineering.
-  </p>
-
-  <p>
-    I am building expertise in machine-focused control systems with a strong
-    foundation in electrical engineering. My work centers on practical system
-    design, simulation, and implementation of automation solutions.
-    I am currently focusing on Siemens PLC environments, control strategies,
-    and real-world industrial applications.
-  </p>
+  <h2>About Me</h2>
+  <p>Focused on industrial automation, PLC systems, and control engineering.</p>
 </div>
+
+<!-- SKILLS -->
+<section id="skills">
+  <h2>Skills</h2>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <h2>Projects</h2>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <h2>Reach Out</h2>
+</section>
 
 <script>
 const hero = document.getElementById('about');
