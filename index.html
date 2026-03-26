@@ -9,7 +9,7 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --dark:    #1c1c1e;
+      --dark:    #1c1cce;
       --mid:     #3a3a3c;
       --accent:  #6b8f71;
       --light-bg:#f2f0ed;
@@ -113,11 +113,14 @@
       color: var(--text);
       margin-bottom: 12px;
     }
+    /* 1. Reduce the global rule margin from 28px to 12px */
     .section-rule {
-      width: 48px; height: 3px;
+      width: 48px; 
+      height: 3px;
       background: var(--mid);
-      margin-bottom: 28px;
+      margin-bottom: 12px; /* Tightened for better flow */
     }
+
     .about-tagline {
       font-size: 18px;
       font-weight: 600;
@@ -132,110 +135,61 @@
       max-width: 760px;
     }
 
-    /* ── SKILLS ── */
-    #skills {
-      background: var(--white);
-    }
-    .skills-hero {
-      position: relative;
-      height: 300px;
-      background: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1600&q=80') center/cover no-repeat;
+           /* ── SKILLS COLUMN LAYOUT ── */
+    
+    /* 3. Ensure the column gap is consistent */
+   .skills-column {
       display: flex;
-      align-items: center;
-      justify-content: center;
+      flex-direction: column;
+      gap: 5px; /* Uniform space between Tech and Soft groups */
     }
-    .skills-hero::before {
-      content: ''; position: absolute; inset: 0;
-      background: rgba(0,0,0,.5);
+
+    .skills-group {
+      display: flex;
+      flex-direction: column;
+      gap: 11px; /* Space between individual cards */
     }
-    .skills-hero-text {
-      position: relative; z-index: 1;
-      text-align: center; color: var(--white);
+
+    /* ── THE SKILL CARD ── */
+    .skill-card {
+      background: var(--light-bg);
+      padding: 16px 20px;
+      border-left: 3px solid var(--accent);
+      transition: all 0.3s ease;
+      cursor: default;
     }
-    .skills-hero-text blockquote {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 28px;
-      font-style: italic;
-      font-weight: 300;
-    }
-    .skills-hero-text cite {
-      display: block;
-      margin-top: 10px;
-      font-size: 11px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      font-style: normal;
-    }
-    .skills-hero-text .quote-rule {
-      width: 40px; height: 2px;
+
+    .skill-card:hover {
+      transform: translateX(10px);
       background: var(--white);
-      margin: 10px auto 0;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
     }
-    .skills-body {
-      padding: 60px 80px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-    }
-    .timeline { position: relative; }
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 8px; top: 0; bottom: 0;
-      width: 1px;
-      background: repeating-linear-gradient(to bottom, var(--mid) 0 6px, transparent 6px 12px);
-    }
-    .tl-item {
-      position: relative;
-      padding-left: 40px;
-      margin-bottom: 44px;
-    }
-    .tl-item::before {
-      content: '';
-      position: absolute;
-      left: 3px; top: 6px;
-      width: 11px; height: 11px;
-      border-radius: 50%;
-      border: 2px solid var(--mid);
-      background: var(--white);
-    }
-    .tl-item h3 {
-      font-size: 20px;
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 600;
-    }
-    .tl-item .tl-date {
-      font-size: 12px;
-      color: var(--accent);
-      font-weight: 600;
-      margin: 4px 0;
-      letter-spacing: 1px;
-    }
-    .tl-item p {
-      font-size: 13px;
-      color: #555;
-      line-height: 1.7;
-    }
-    .skill-bars h3 {
+
+    .skill-card h4 {
       font-size: 13px;
       font-weight: 700;
       letter-spacing: 1px;
       text-transform: uppercase;
-      margin-bottom: 6px;
+      color: var(--text);
+      margin-bottom: 4px;
     }
-    .skill-row { margin-bottom: 22px; }
-    .skill-row .label {
-      display: flex; justify-content: space-between;
-      font-size: 12px; color: #444; margin-bottom: 6px;
+
+    .skill-card p {
+      font-size: 12px;
+      color: #666;
+      line-height: 1.5;
     }
-    .bar-bg {
-      height: 4px; background: #ddd; border-radius: 2px;
+
+    .group-subtitle {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      font-weight: 600;
+      font-style: italic;
+      color: var(--mid);
+      margin-top: 0;      /* Ensure no extra space above */
+      margin-bottom: 10px; /* Space before the cards start */
     }
-    .bar-fill {
-      height: 4px; border-radius: 2px;
-      background: var(--mid);
-      transition: width 1.2s ease;
-    }
+
 
     /* ── PROJECTS ── */
     #projects {
@@ -371,7 +325,7 @@
       .projects-grid { grid-template-columns: 1fr; }
       .contact-cards { flex-direction: column; }
       nav { gap: 20px; }
-      nav a { font-size: 9px; }
+      nav a { font-size: 14px; }
     }
   </style>
 </head>
@@ -392,76 +346,74 @@
       Replace the src below with your actual photo.
       E.g.: <img class="hero-avatar" src="profile.jpg" alt="Your Name">
     -->
-    <img class="hero-avatar" src="https://i.pravatar.cc/120?img=11" alt="Your Name"/>
+    <img class="hero-avatar" src="https://i.pravatar.cc/120?img=12" alt="Eliabu Ngata"/>
     <div class="hero-text">
-      <h1>YOUR NAME</h1>
-      <p>Full-Stack Developer &amp; Open-Source Contributor</p>
+      <h1>ELIABU NGATA</h1>
+      <p>Electrical Engineer &amp; Control systems enthusiast</p>
     </div>
   </div>
 
   <div class="about-body">
     <div class="section-label">About Me</div>
     <div class="section-rule"></div>
-    <p class="about-tagline">
-      Passionate software developer with 3+ years building scalable web applications
-      and contributing to open-source communities.
-    </p>
     <p>
-      I specialize in modern JavaScript frameworks and cloud-native architectures.
-      My work bridges the gap between elegant design and robust engineering —
-      I believe great software is as much about the experience as the underlying logic.
-      Currently focused on React, Node.js, and distributed systems. Always looking to
-      collaborate on challenging problems and impactful projects.
+      Welcome! I am an Electrical Engineering student and enthusiast of control systems, protection, and machine automation. Feel free to explore my portfolio to learn more about my skills and projects and connect for opportunities. 
     </p>
   </div>
 </section>
 
-<!-- ══════════ SKILLS ══════════ -->
-<section id="skills">
-  <div class="skills-hero">
-    <div class="skills-hero-text">
-      <blockquote>"First, solve the problem. Then, write the code."</blockquote>
-      <cite>John Johnson</cite>
-      <div class="quote-rule"></div>
-    </div>
-  </div>
+<div class="skills-body">
+  
+ 
 
-  <div class="skills-body">
+  <!-- RIGHT COLUMN: Classified Skills -->
+  <div class="skills-column">
+    <div class="section-label">Skills</div>
+    <div class="section-rule"></div>
 
+    <!-- Group A: Technical -->
+    <div class="skills-group">
+      <div class="group-subtitle">Technical skills</div>
+      
+      <div class="skill-card">
+        <h4>Computer Aided Drafting</h4>
+        <p>Expertise in precision modeling and electrical/architectural layouts.</p>
+      </div>
 
-    <!-- Skill bars -->
-    <div class="skill-bars">
-      <div class="section-label">Technical Skills</div>
-      <div class="section-rule"></div>
+      <div class="skill-card">
+        <h4>Circuit Design & Simulation</h4>
+        <p>Advanced analysis and testing of systems before physical implementation.</p>
+      </div>
 
-      <div class="skill-row">
-        <div class="label"><span>JavaScript / TypeScript</span><span>90%</span></div>
-        <div class="bar-bg"><div class="bar-fill" style="width:90%"></div></div>
-      </div>
-      <div class="skill-row">
-        <div class="label"><span>React / Next.js</span><span>85%</span></div>
-        <div class="bar-bg"><div class="bar-fill" style="width:85%"></div></div>
-      </div>
-      <div class="skill-row">
-        <div class="label"><span>Node.js / Express</span><span>80%</span></div>
-        <div class="bar-bg"><div class="bar-fill" style="width:80%"></div></div>
-      </div>
-      <div class="skill-row">
-        <div class="label"><span>Python</span><span>75%</span></div>
-        <div class="bar-bg"><div class="bar-fill" style="width:75%"></div></div>
-      </div>
-      <div class="skill-row">
-        <div class="label"><span>SQL / PostgreSQL</span><span>70%</span></div>
-        <div class="bar-bg"><div class="bar-fill" style="width:70%"></div></div>
-      </div>
-      <div class="skill-row">
-        <div class="label"><span>Docker / CI-CD</span><span>65%</span></div>
-        <div class="bar-bg"><div class="bar-fill" style="width:65%"></div></div>
+      <div class="skill-card">
+        <h4>PLC Programming</h4>
+        <p>Logic development and troubleshooting for industrial automation.</p>
       </div>
     </div>
 
-  </div>
-</section>
+    <!-- Group B: Soft Skills -->
+    <div class="skills-group">
+      <div class="group-subtitle">Soft skills</div>
+
+      <div class="skill-card">
+        <h4>Communication & Teamwork</h4>
+        <p>Articulating complex technical concepts to diverse stakeholders.</p>
+      </div>
+
+      <div class="skill-card">
+        <h4>Analytical Problem Solving</h4>
+        <p>High attention to detail with a focus on safety and efficiency.</p>
+      </div>
+
+      <div class="skill-card">
+        <h4>Project Management</h4>
+        <p>Strict adherence to project timelines and resource optimization.</p>
+      </div>
+    </div>
+
+  </div> <!-- End Skills Column -->
+</div> <!-- End Skills Body -->
+
 
 <!-- ══════════ PROJECTS ══════════ -->
 <section id="projects">
