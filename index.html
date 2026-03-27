@@ -64,7 +64,7 @@
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
-      background: url('https://github.com/eliabungata/eliabungata.github.io/blob/main/images/My%20profile%20picture.jpg') center/cover no-repeat;
+      background: url('https://raw.githubusercontent.com/eliabungata/eliabungata.github.io/main/images/coverphoto.jpeg') center/cover no-repeat;
     }
     #about::before {
       content: '';
@@ -344,7 +344,7 @@
 <!-- ══════════ ABOUT ME ══════════ -->
 <section id="about">
   <div class="hero-content">
-    <img class="hero-avatar" src="https://i.pravatar.cc/120?img=12" alt="Eliabu Ngata"/>
+    <img class="hero-avatar" src="https://raw.githubusercontent.com/eliabungata/eliabungata.github.io/main/images/My%20profile%20picture.jpg" alt="Eliabu Ngata"/>
     <div class="hero-text">
       <h1>ELIABU NGATA</h1>
       <p>Electrical Engineer &amp; Control systems enthusiast</p>
@@ -476,7 +476,7 @@
           </div>
         </a>
 
-        <a class="contact-card" href="mailto:eliabungata@gmail.com">
+        <a class="contact-card" href="/cdn-cgi/l/email-protection#1e7b72777f7c6b70797f6a7f5e79737f7772307d7173">
           <div class="cc-icon">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16 c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6 l8 5 8-5v2z"/>
@@ -484,7 +484,7 @@
           </div>
           <div>
             <div class="cc-label">Email</div>
-            <div class="cc-value">eliabungata@gmail.com</div>
+            <div class="cc-value"><span class="__cf_email__" data-cfemail="ed8881848c8f98838a8c998cad8a808c8481c38e8280">[email&#160;protected]</span></div>
           </div>
         </a>
 
@@ -507,7 +507,7 @@
 
 <footer>© 2026 Eliabu Ngata — All rights reserved</footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   const sections = document.querySelectorAll('section[id]');
   const links    = document.querySelectorAll('.nav-link');
 
@@ -517,16 +517,4 @@
       if (e.isIntersecting) {
         const id = e.target.getAttribute('id');
         links.forEach(l => {
-          l.classList.remove('active');
-          if (l.getAttribute('href') === `#${id}`) {
-            l.classList.add('active');
-          }
-        });
-      }
-    });
-  }, { threshold: 0.5 });
-
-  sections.forEach(s => observer.observe(s));
-</script>
-</body>
-</html>
+          l.classList.re
