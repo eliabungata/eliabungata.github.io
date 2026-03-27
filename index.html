@@ -113,12 +113,11 @@
       color: var(--text);
       margin-bottom: 12px;
     }
-    /* 1. Reduce the global rule margin from 28px to 12px */
     .section-rule {
       width: 48px; 
       height: 3px;
       background: var(--mid);
-      margin-bottom: 12px; /* Tightened for better flow */
+      margin-bottom: 12px;
     }
 
     .about-tagline {
@@ -135,19 +134,17 @@
       max-width: 760px;
     }
 
-           /* ── SKILLS COLUMN LAYOUT ── */
-    
-    /* 3. Ensure the column gap is consistent */
-   .skills-column {
+    /* ── SKILLS COLUMN LAYOUT ── */
+    .skills-column {
       display: flex;
       flex-direction: column;
-      gap: 5px; /* Uniform space between Tech and Soft groups */
+      gap: 5px;
     }
 
     .skills-group {
       display: flex;
       flex-direction: column;
-      gap: 11px; /* Space between individual cards */
+      gap: 11px;
     }
 
     /* ── THE SKILL CARD ── */
@@ -186,10 +183,15 @@
       font-weight: 600;
       font-style: italic;
       color: var(--mid);
-      margin-top: 0;      /* Ensure no extra space above */
-      margin-bottom: 10px; /* Space before the cards start */
+      margin-top: 0;
+      margin-bottom: 10px;
     }
 
+    /* ── SKILLS SECTION WRAPPER ── */
+    #skills {
+      background: var(--light-bg);
+      padding: 60px 80px;
+    }
 
     /* ── PROJECTS ── */
     #projects {
@@ -265,7 +267,6 @@
       line-height: 1.7;
     }
 
-    /* three clickable contact cards */
     .contact-cards {
       display: flex;
       gap: 16px;
@@ -320,8 +321,7 @@
 
     @media (max-width: 768px) {
       .hero-content, .about-body, #projects,
-      .skills-body, .contact-hero { padding: 32px 24px; }
-      .skills-body { grid-template-columns: 1fr; }
+      #skills, .contact-hero { padding: 32px 24px; }
       .projects-grid { grid-template-columns: 1fr; }
       .contact-cards { flex-direction: column; }
       nav { gap: 20px; }
@@ -334,7 +334,8 @@
 
 <!-- ══════════ NAVIGATION ══════════ -->
 <nav id="main-nav">
-  <a href="#about"    class="nav-link active">About Me</a>
+  <!-- FIX 1: Removed hardcoded "active" class from this link -->
+  <a href="#about"    class="nav-link">About Me</a>
   <a href="#skills"   class="nav-link">Skills</a>
   <a href="#projects" class="nav-link">Projects</a>
   <a href="#contact"  class="nav-link">Reach Out</a>
@@ -343,10 +344,6 @@
 <!-- ══════════ ABOUT ME ══════════ -->
 <section id="about">
   <div class="hero-content">
-    <!--
-      Replace the src below with your actual photo.
-      E.g.: <img class="hero-avatar" src="profile.jpg" alt="Your Name">
-    -->
     <img class="hero-avatar" src="https://i.pravatar.cc/120?img=12" alt="Eliabu Ngata"/>
     <div class="hero-text">
       <h1>ELIABU NGATA</h1>
@@ -363,58 +360,54 @@
   </div>
 </section>
 
-  <!-- ══════════ SKILLS ══════════ -->
-  <section id="skills">
-<div class="skills-body">
-  
-  <!-- RIGHT COLUMN: Classified Skills -->
-  <div class="skills-column">
-    <div class="section-label">Skills</div>
-    <div class="section-rule"></div>
+<!-- ══════════ SKILLS ══════════ -->
+<section id="skills">
+  <div class="skills-body">
+    <div class="skills-column">
+      <div class="section-label">Skills</div>
+      <div class="section-rule"></div>
 
-    <!-- Group A: Technical -->
-    <div class="skills-group">
-      <div class="group-subtitle">Technical skills</div>
-      
-      <div class="skill-card">
-        <h4>Computer Aided Drafting</h4>
-        <p>Expertise in precision modeling and electrical/architectural layouts.</p>
+      <div class="skills-group">
+        <div class="group-subtitle">Technical skills</div>
+        
+        <div class="skill-card">
+          <h4>Computer Aided Drafting</h4>
+          <p>Expertise in precision modeling and electrical/architectural layouts.</p>
+        </div>
+
+        <div class="skill-card">
+          <h4>Circuit Design & Simulation</h4>
+          <p>Advanced analysis and testing of systems before physical implementation.</p>
+        </div>
+
+        <div class="skill-card">
+          <h4>PLC Programming</h4>
+          <p>Logic development and troubleshooting for industrial automation.</p>
+        </div>
       </div>
 
-      <div class="skill-card">
-        <h4>Circuit Design & Simulation</h4>
-        <p>Advanced analysis and testing of systems before physical implementation.</p>
+      <div class="skills-group">
+        <div class="group-subtitle">Soft skills</div>
+
+        <div class="skill-card">
+          <h4>Communication & Teamwork</h4>
+          <p>Articulating complex technical concepts to diverse stakeholders.</p>
+        </div>
+
+        <div class="skill-card">
+          <h4>Analytical Problem Solving</h4>
+          <p>High attention to detail with a focus on safety and efficiency.</p>
+        </div>
+
+        <div class="skill-card">
+          <h4>Project Management</h4>
+          <p>Strict adherence to project timelines and resource optimization.</p>
+        </div>
       </div>
 
-      <div class="skill-card">
-        <h4>PLC Programming</h4>
-        <p>Logic development and troubleshooting for industrial automation.</p>
-      </div>
     </div>
-
-    <!-- Group B: Soft Skills -->
-    <div class="skills-group">
-      <div class="group-subtitle">Soft skills</div>
-
-      <div class="skill-card">
-        <h4>Communication & Teamwork</h4>
-        <p>Articulating complex technical concepts to diverse stakeholders.</p>
-      </div>
-
-      <div class="skill-card">
-        <h4>Analytical Problem Solving</h4>
-        <p>High attention to detail with a focus on safety and efficiency.</p>
-      </div>
-
-      <div class="skill-card">
-        <h4>Project Management</h4>
-        <p>Strict adherence to project timelines and resource optimization.</p>
-      </div>
-    </div>
-
-  </div> <!-- End Skills Column -->
-</div> <!-- End Skills Body -->
-
+  </div>
+</section>
 
 <!-- ══════════ PROJECTS ══════════ -->
 <section id="projects">
@@ -468,8 +461,7 @@
 
       <div class="contact-cards">
 
-        <!-- ① Phone — opens the phone dialler app -->
-        <a class="contact-card" href="tel:+255 747 199 336">
+        <a class="contact-card" href="tel:+255747199336">
           <div class="cc-icon">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2
@@ -480,12 +472,10 @@
           </div>
           <div>
             <div class="cc-label">Mobile</div>
-            <!--  ↓ Replace with your actual number  -->
-            <div class="cc-value">+255 747 199 336 </div>
+            <div class="cc-value">+255 747 199 336</div>
           </div>
         </a>
 
-        <!-- ② Email — opens Gmail / default mail app -->
         <a class="contact-card" href="mailto:eliabungata@gmail.com">
           <div class="cc-icon">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -498,7 +488,6 @@
           </div>
         </a>
 
-        <!-- ③ LinkedIn — opens LinkedIn app or website -->
         <a class="contact-card" href="https://www.linkedin.com/in/eliabungata" target="_blank" rel="noopener noreferrer">
           <div class="cc-icon">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -519,23 +508,25 @@
 <footer>© 2026 Eliabu Ngata — All rights reserved</footer>
 
 <script>
-  // Active nav highlight on scroll
   const sections = document.querySelectorAll('section[id]');
   const links    = document.querySelectorAll('.nav-link');
 
+  // FIX 2: Corrected getAttribute syntax (removed the stray "8")
   const observer = new IntersectionObserver(entries => {
     entries.forEach(e => {
       if (e.isIntersecting) {
         const id = e.target.getAttribute('id');
         links.forEach(l => {
           l.classList.remove('active');
-          if (l.getAttribute(8'href') === `#${id}`) {
+          if (l.getAttribute('href') === `#${id}`) {
             l.classList.add('active');
           }
         });
       }
-    }, { threshold: 0.5 });
-  });
+    });
+  }, { threshold: 0.5 });
 
   sections.forEach(s => observer.observe(s));
 </script>
+</body>
+</html>
