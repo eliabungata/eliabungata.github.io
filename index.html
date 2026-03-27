@@ -330,22 +330,6 @@
   </style>
 </head>
 
-<script>
-  // 1. Select all the links in your nav
-  const navLinks = document.querySelectorAll('nav a');
-
-  navLinks.forEach(link => {
-    link.addEventListener('click', function() {
-      // 2. Remove the 'active' class from every link
-      navLinks.forEach(nav => nav.classList.remove('active'));
-      
-      // 3. Add the 'active' class to the one you just clicked
-      this.classList.add('active');
-    });
-  });
-</script>
-
-
 <body>
 
 <!-- ══════════ NAVIGATION ══════════ -->
