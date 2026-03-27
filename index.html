@@ -57,16 +57,16 @@
       border-bottom-color: var(--text);
     }
 
-    /* ── HERO (About Me) ── */
-    #about {
+    /* ── HERO (cover photo only) ── */
+    #hero {
       position: relative;
       min-height: 520px;
       display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      background: url('https://raw.githubusercontent.com/eliabungata/eliabungata.github.io/main/images/coverphoto.jpeg') center 5%/cover no-repeat;
+      align-items: center;
+      justify-content: center;
+      background: url('https://raw.githubusercontent.com/eliabungata/eliabungata.github.io/main/images/coverphoto.jpeg') center 20%/cover no-repeat;
     }
-    #about::before {
+    #hero::before {
       content: '';
       position: absolute; inset: 0;
       background: rgba(0,0,0,.55);
@@ -74,32 +74,41 @@
     .hero-content {
       position: relative;
       z-index: 1;
-      padding: 48px 80px;
+      padding: 60px 80px;
       display: flex;
+      flex-direction: column;
       align-items: center;
-      gap: 36px;
+      text-align: center;
+      gap: 20px;
     }
     .hero-avatar {
-      width: 120px; height: 120px;
+      width: 130px; height: 130px;
       border-radius: 50%;
       border: 3px solid rgba(255,255,255,.7);
       object-fit: cover;
-      object-position: center top; /* shows face/top of portrait — change to e.g. "center 20%" to shift down */
+      object-position: center top;
       flex-shrink: 0;
     }
     .hero-text h1 {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 46px;
+      font-size: 48px;
       font-weight: 600;
       color: var(--white);
-      letter-spacing: 1px;
+      letter-spacing: 2px;
     }
     .hero-text p {
-      font-size: 18px;
+      font-size: 16px;
       font-style: italic;
       color: rgba(255,255,255,.8);
-      margin-top: 6px;
+      margin-top: 8px;
       font-weight: 300;
+      letter-spacing: 1px;
+    }
+
+    /* ── ABOUT ME (separate section below hero) ── */
+    #about {
+      background: var(--light-bg);
+      border-top: 4px solid var(--accent);
     }
     .about-body {
       background: var(--light-bg);
@@ -177,6 +186,27 @@
       line-height: 1.5;
     }
 
+    /* Option 2: skill card with background image
+       Add style="--skill-img: url('YOUR_IMAGE_URL')" to any .skill-card
+       to activate the background image mode */
+    .skill-card.has-image {
+      background-image: var(--skill-img);
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      min-height: 120px;
+    }
+    .skill-card.has-image::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: rgba(255,255,255,.82);
+    }
+    .skill-card.has-image h4,
+    .skill-card.has-image p {
+      position: relative;
+      z-index: 1;
+    }
+
     .group-subtitle {
       font-family: 'Cormorant Garamond', serif;
       font-size: 18px;
@@ -207,11 +237,37 @@
     .project-card {
       background: var(--mid);
       color: var(--white);
-      padding: 32px;
+      padding: 0;
       cursor: default;
       transition: background .2s;
+      overflow: hidden;
     }
     .project-card:hover { background: #2c2c2e; }
+
+    /* Option 1: image banner at top of each project card */
+    .project-card-img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+    /* Grey placeholder shown until you add a real image */
+    .project-card-img-placeholder {
+      width: 100%;
+      height: 180px;
+      background: #4a4a4c;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.3);
+    }
+    .project-card-body {
+      padding: 24px 32px 32px;
+    }
     .project-card h3 {
       font-size: 22px;
       font-family: 'Cormorant Garamond', serif;
@@ -322,6 +378,7 @@
     @media (max-width: 768px) {
       .hero-content, .about-body, #projects,
       #skills, .contact-hero { padding: 32px 24px; }
+      .hero-text h1 { font-size: 32px; }
       .projects-grid { grid-template-columns: 1fr; }
       .contact-cards { flex-direction: column; }
       nav { gap: 20px; }
@@ -335,27 +392,30 @@
 <!-- ══════════ NAVIGATION ══════════ -->
 <nav id="main-nav">
   <!-- FIX 1: Removed hardcoded "active" class from this link -->
-  <a href="#about"    class="nav-link">About Me</a>
+  <a href="#hero"     class="nav-link">About Me</a>
   <a href="#skills"   class="nav-link">Skills</a>
   <a href="#projects" class="nav-link">Projects</a>
   <a href="#contact"  class="nav-link">Reach Out</a>
 </nav>
 
-<!-- ══════════ ABOUT ME ══════════ -->
-<section id="about">
+<!-- ══════════ HERO (cover photo) ══════════ -->
+<section id="hero">
   <div class="hero-content">
     <img class="hero-avatar" src="https://raw.githubusercontent.com/eliabungata/eliabungata.github.io/main/images/My%20profile%20picture.jpg" alt="Eliabu Ngata"/>
     <div class="hero-text">
       <h1>ELIABU NGATA</h1>
-      <p>Electrical Engineer &amp; Control systems enthusiast</p>
+      <p>Electrical Engineer &amp; Control Systems Enthusiast</p>
     </div>
   </div>
+</section>
 
+<!-- ══════════ ABOUT ME ══════════ -->
+<section id="about">
   <div class="about-body">
     <div class="section-label">About Me</div>
     <div class="section-rule"></div>
     <p>
-      Welcome! I am an Electrical Engineering student and enthusiast of control systems, protection, and machine automation. Feel free to explore my portfolio to learn more about my skills and projects and connect for opportunities. 
+      Welcome! I am an Electrical Engineering student and enthusiast of control systems, protection, and machine automation. Feel free to explore my portfolio to learn more about my skills and projects and connect for opportunities.
     </p>
   </div>
 </section>
@@ -417,35 +477,52 @@
   <div class="projects-grid">
 
     <div class="project-card">
-      <h3>Project Alpha</h3>
-      <p>A real-time collaborative task manager built with React, Socket.io and PostgreSQL. Supports teams of up to 200 users with live updates and granular permissions.</p>
-      <span class="tag">React</span><span class="tag">Socket.io</span><span class="tag">PostgreSQL</span>
-      <br/>
-      <a href="https://github.com/yourusername/project-alpha" target="_blank">View on GitHub →</a>
+      <!-- SWAP the placeholder div below with an <img> when you have a screenshot:
+           <img class="project-card-img" src="https://raw.githubusercontent.com/eliabungata/eliabungata.github.io/main/images/project1.jpg" alt="Project Alpha"/> -->
+      <div class="project-card-img-placeholder">Add project image</div>
+      <div class="project-card-body">
+        <h3>Project Alpha</h3>
+        <p>A real-time collaborative task manager built with React, Socket.io and PostgreSQL. Supports teams of up to 200 users with live updates and granular permissions.</p>
+        <span class="tag">React</span><span class="tag">Socket.io</span><span class="tag">PostgreSQL</span>
+        <br/>
+        <a href="https://github.com/yourusername/project-alpha" target="_blank">View on GitHub →</a>
+      </div>
     </div>
 
     <div class="project-card">
-      <h3>API Gateway</h3>
-      <p>Lightweight Node.js reverse-proxy with rate limiting, JWT authentication and request logging. Handles 10 000 req/s in benchmarks.</p>
-      <span class="tag">Node.js</span><span class="tag">JWT</span><span class="tag">Redis</span>
-      <br/>
-      <a href="https://github.com/yourusername/api-gateway" target="_blank">View on GitHub →</a>
+      <!-- <img class="project-card-img" src="https://raw.githubusercontent.com/eliabungata/eliabungata.github.io/main/images/project2.jpg" alt="API Gateway"/> -->
+      <div class="project-card-img-placeholder">Add project image</div>
+      <div class="project-card-body">
+        <h3>API Gateway</h3>
+        <p>Lightweight Node.js reverse-proxy with rate limiting, JWT authentication and request logging. Handles 10 000 req/s in benchmarks.</p>
+        <span class="tag">Node.js</span><span class="tag">JWT</span><span class="tag">Redis</span>
+        <br/>
+        <a href="https://github.com/yourusername/api-gateway" target="_blank">View on GitHub →</a>
+      </div>
     </div>
 
     <div class="project-card">
-      <h3>ML Price Predictor</h3>
-      <p>Machine-learning model (scikit-learn) trained on housing data to predict property values. Deployed via FastAPI with a Next.js frontend.</p>
-      <span class="tag">Python</span><span class="tag">scikit-learn</span><span class="tag">FastAPI</span>
-      <br/>
-      <a href="https://github.com/yourusername/ml-price" target="_blank">View on GitHub →</a>
+      <!-- <img class="project-card-img" src="https://raw.githubusercontent.com/eliabungata/eliabungata.github.io/main/images/project3.jpg" alt="ML Price Predictor"/> -->
+      <div class="project-card-img-placeholder">Add project image</div>
+      <div class="project-card-body">
+        <h3>ML Price Predictor</h3>
+        <p>Machine-learning model (scikit-learn) trained on housing data to predict property values. Deployed via FastAPI with a Next.js frontend.</p>
+        <span class="tag">Python</span><span class="tag">scikit-learn</span><span class="tag">FastAPI</span>
+        <br/>
+        <a href="https://github.com/yourusername/ml-price" target="_blank">View on GitHub →</a>
+      </div>
     </div>
 
     <div class="project-card">
-      <h3>Open-Source CLI Tool</h3>
-      <p>A developer utility for scaffolding full-stack projects with a single command. 500+ GitHub stars and 12 contributors.</p>
-      <span class="tag">CLI</span><span class="tag">TypeScript</span><span class="tag">Open Source</span>
-      <br/>
-      <a href="https://github.com/yourusername/cli-tool" target="_blank">View on GitHub →</a>
+      <!-- <img class="project-card-img" src="https://raw.githubusercontent.com/eliabungata/eliabungata.github.io/main/images/project4.jpg" alt="CLI Tool"/> -->
+      <div class="project-card-img-placeholder">Add project image</div>
+      <div class="project-card-body">
+        <h3>Open-Source CLI Tool</h3>
+        <p>A developer utility for scaffolding full-stack projects with a single command. 500+ GitHub stars and 12 contributors.</p>
+        <span class="tag">CLI</span><span class="tag">TypeScript</span><span class="tag">Open Source</span>
+        <br/>
+        <a href="https://github.com/yourusername/cli-tool" target="_blank">View on GitHub →</a>
+      </div>
     </div>
 
   </div>
