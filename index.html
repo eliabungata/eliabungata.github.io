@@ -64,7 +64,7 @@
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
-      background: url('https://raw.githubusercontent.com/eliabungata/eliabungata.github.io/main/images/coverphoto.jpeg') center/cover no-repeat;
+      background: url('https://raw.githubusercontent.com/eliabungata/eliabungata.github.io/main/images/coverphoto.jpeg') center 20%/cover no-repeat;
     }
     #about::before {
       content: '';
@@ -84,8 +84,8 @@
       border-radius: 50%;
       border: 3px solid rgba(255,255,255,.7);
       object-fit: cover;
+      object-position: center top; /* shows face/top of portrait — change to e.g. "center 20%" to shift down */
       flex-shrink: 0;
-      background: #555 url('https://via.placeholder.com/120') center/cover;
     }
     .hero-text h1 {
       font-family: 'Cormorant Garamond', serif;
