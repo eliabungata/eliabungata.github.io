@@ -44,17 +44,10 @@
       border-bottom: 1px solid var(--border);
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;
       padding: 0 80px;
     }
-    .nav-logo {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 22px;
-      font-weight: 600;
-      letter-spacing: 3px;
-      color: var(--text);
-      text-decoration: none;
-    }
+    .nav-logo { display: none; }
     .nav-links { display: flex; gap: 40px; }
     nav a.nav-link {
       text-decoration: none;
@@ -510,7 +503,8 @@
 <nav id="main-nav">
   <a href="#hero" class="nav-logo">EN</a>
   <div class="nav-links">
-    <a href="#hero"     class="nav-link">About</a>
+    <a href="#hero"     class="nav-link">Home</a>
+    <a href="#about"    class="nav-link">About</a>
     <a href="#skills"   class="nav-link">Skills</a>
     <a href="#projects" class="nav-link">Projects</a>
     <a href="#contact"  class="nav-link">Reach Out</a>
@@ -711,13 +705,13 @@
           </div>
         </a>
 
-        <a class="contact-card" href="mailto:eliabungata@gmail.com">
+        <a class="contact-card" href="/cdn-cgi/l/email-protection#b3d6dfdad2d1c6ddd4d2c7d2f3d4ded2dadf9dd0dcde">
           <div class="cc-icon">
             <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
           </div>
           <div>
             <div class="cc-label">Email</div>
-            <div class="cc-value">eliabungata@gmail.com</div>
+            <div class="cc-value"><span class="__cf_email__" data-cfemail="a7c2cbcec6c5d2c9c0c6d3c6e7c0cac6cecb89c4c8ca">[email&#160;protected]</span></div>
           </div>
         </a>
 
@@ -745,7 +739,7 @@
   <span class="footer-copy">© 2026 — All rights reserved</span>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   /* ── Active nav highlight on scroll ── */
   const sections = document.querySelectorAll('section[id]');
   const links    = document.querySelectorAll('.nav-link');
@@ -760,22 +754,11 @@
         });
       }
     });
-  }, { threshold: 0.4 });
+  }, { threshold: 0.3 });
 
   sections.forEach(s => navObserver.observe(s));
 
   /* ── Scroll reveal animation ── */
   const reveals = document.querySelectorAll('.reveal');
   const revealObserver = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        revealObserver.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.1 });
-
-  reveals.forEach(r => revealObserver.observe(r));
-</script>
-</body>
-</html>
+    entries.forEa
