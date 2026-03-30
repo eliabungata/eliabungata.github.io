@@ -64,7 +64,6 @@
       color: var(--text);
       border-bottom-color: var(--accent);
     }
-    /* active stays underlined always */
     nav a.nav-link.active {
       color: var(--text);
       border-bottom-color: var(--accent);
@@ -260,6 +259,7 @@
     .skills-col.technical .group-subtitle::after { background: var(--accent); }
     .skills-col.soft .group-subtitle { color: var(--mid); }
     .skills-col.soft .group-subtitle::after { background: var(--mid); }
+
     .skill-card {
       background: var(--white); padding: 20px 24px;
       border-left: 3px solid var(--accent);
@@ -278,17 +278,43 @@
       text-transform: uppercase; color: var(--text); margin-bottom: 6px;
     }
     .skill-card p { font-size: 13px; color: #777; line-height: 1.7; }
-    .skill-card.has-image {
-      background-image: var(--skill-img);
-      background-size: cover; background-position: center;
-      position: relative; min-height: 120px;
+
+    /* ── Tools subsection ── */
+    .tools-subsection {
+      margin-top: 32px;
     }
-    .skill-card.has-image::before {
-      content: ''; position: absolute; inset: 0;
-      background: rgba(255,255,255,.88);
+    .tools-subtitle {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px; font-weight: 600; font-style: italic;
+      color: var(--accent);
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      position: relative;
     }
-    .skill-card.has-image h4,
-    .skill-card.has-image p { position: relative; z-index: 1; }
+    .tools-subtitle::after {
+      content: ''; position: absolute; left: 0; bottom: 0;
+      height: 2px; width: 32px;
+      background: var(--accent); border-radius: 2px;
+    }
+    .tools-grid {
+      display: flex; flex-wrap: wrap; gap: 10px;
+    }
+    .tool-chip {
+      background: var(--white);
+      border: 1.5px solid var(--accent);
+      color: var(--accent2);
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 8px 16px;
+      transition: background .2s, color .2s;
+      cursor: default;
+    }
+    .tool-chip:hover {
+      background: var(--accent);
+      color: var(--white);
+    }
 
     /* ════════════════════════════
        PROJECTS
@@ -527,37 +553,78 @@
     </div>
     <div class="skills-body">
 
+      <!-- ── Technical Skills ── -->
       <div class="skills-col technical">
         <div class="group-subtitle">Technical Skills</div>
+
         <div class="skill-card">
           <h4>Computer Aided Drafting</h4>
-          <p>Expertise in precision modeling and electrical/architectural layouts.</p>
+          <p>Creating electrical drawings for engineering projects.</p>
         </div>
+
         <div class="skill-card">
           <h4>Circuit Design &amp; Simulation</h4>
-          <p>Advanced analysis and testing of systems before physical implementation.</p>
+          <p>Designing, modelling, and testing electrical circuits before physical implementation.</p>
         </div>
+
         <div class="skill-card">
-          <h4>PLC Programming</h4>
-          <p>Logic development and troubleshooting for industrial automation.</p>
+          <h4>Industrial Control Systems (PLC)</h4>
+          <p>Programming and troubleshooting PLCs for industrial automation and control.</p>
+        </div>
+
+        <div class="skill-card">
+          <h4>Electrical Drawings Interpretation</h4>
+          <p>Reading and interpreting technical drawings for installation and maintenance work.</p>
+        </div>
+
+        <div class="skill-card">
+          <h4>Report Writing</h4>
+          <p>Producing clear technical reports and engineering documentation.</p>
+        </div>
+
+        <!-- Tools subsection under Technical -->
+        <div class="tools-subsection">
+          <div class="tools-subtitle">Tools &amp; Software</div>
+          <div class="tools-grid">
+            <span class="tool-chip">AutoCAD</span>
+            <span class="tool-chip">MATLAB / Simulink</span>
+            <span class="tool-chip">PLECS</span>
+            <span class="tool-chip">PLC Software</span>
+            <span class="tool-chip">MS Excel</span>
+            <span class="tool-chip">MS Word</span>
+            <span class="tool-chip">PowerPoint</span>
+          </div>
         </div>
       </div>
 
       <div class="skills-divider-line"></div>
 
+      <!-- ── Soft Skills ── -->
       <div class="skills-col soft">
-        <div class="group-subtitle">Soft Skills</div>
+        <div class="group-subtitle">Professional Skills</div>
+
         <div class="skill-card">
           <h4>Communication &amp; Teamwork</h4>
-          <p>Articulating complex technical concepts to diverse stakeholders.</p>
+          <p>Collaborating effectively with teams and clearly conveying technical ideas.</p>
         </div>
+
         <div class="skill-card">
           <h4>Analytical Problem Solving</h4>
-          <p>High attention to detail with a focus on safety and efficiency.</p>
+          <p>Breaking down complex engineering problems to develop solutions.</p>
+        </div>
+
+        <div class="skill-card">
+          <h4>Time Management</h4>
+          <p>Delivering tasks on schedule while managing multiple responsibilities.</p>
+        </div>
+
+        <div class="skill-card">
+          <h4>Presentation Skills</h4>
+          <p>Presenting technical findings and project progress clearly to diverse audiences.</p>
         </div>
         <div class="skill-card">
-          <h4>Project Management</h4>
-          <p>Strict adherence to project timelines and resource optimization.</p>
+          <h4>Leadership &amp; Coordination</h4>
+          <p>Leading group efforts, assigning roles, and keeping teams aligned on goals.</p
         </div>
       </div>
 
@@ -578,7 +645,6 @@
     <div class="projects-grid">
 
       <div class="project-card">
-        <!-- Replace placeholder with: <img class="project-card-img" src="https://raw.githubusercontent.com/eliabungata/eliabungata.github.io/main/images/project1.jpg" alt="Project 1"/> -->
         <div class="project-card-img-placeholder">Add Project Image</div>
         <div class="project-card-body">
           <h3>Project Alpha</h3>
@@ -693,7 +759,6 @@
   const sections = document.querySelectorAll('section[id]');
   const links    = document.querySelectorAll('.nav-link');
 
-  /* ── Click: set active immediately on click, stays until scroll changes it ── */
   links.forEach(link => {
     link.addEventListener('click', () => {
       links.forEach(l => l.classList.remove('active'));
@@ -701,7 +766,6 @@
     });
   });
 
-  /* ── Scroll: update active as sections come into view ── */
   const navObserver = new IntersectionObserver(entries => {
     entries.forEach(e => {
       if (e.isIntersecting) {
@@ -716,7 +780,6 @@
 
   sections.forEach(s => navObserver.observe(s));
 
-  /* ── Scroll reveal animation ── */
   const reveals = document.querySelectorAll('.reveal');
   const revealObserver = new IntersectionObserver(entries => {
     entries.forEach(e => {
