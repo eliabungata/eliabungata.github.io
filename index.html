@@ -280,41 +280,29 @@
     .skill-card p { font-size: 13px; color: #777; line-height: 1.7; }
 
     /* ── Tools subsection ── */
-    .tools-subsection {
-      margin-top: 32px;
-    }
+    .tools-subsection { margin-top: 32px; }
     .tools-subtitle {
       font-family: 'Cormorant Garamond', serif;
       font-size: 22px; font-weight: 600; font-style: italic;
       color: var(--accent);
-      margin-bottom: 14px;
-      padding-bottom: 10px;
-      position: relative;
+      margin-bottom: 14px; padding-bottom: 10px; position: relative;
     }
     .tools-subtitle::after {
       content: ''; position: absolute; left: 0; bottom: 0;
       height: 2px; width: 32px;
       background: var(--accent); border-radius: 2px;
     }
-    .tools-grid {
-      display: flex; flex-wrap: wrap; gap: 10px;
-    }
+    .tools-grid { display: flex; flex-wrap: wrap; gap: 10px; }
     .tool-chip {
       background: var(--white);
       border: 1.5px solid var(--accent);
       color: var(--accent2);
-      font-size: 10.5px;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
+      font-size: 10.5px; font-weight: 700;
+      letter-spacing: 1.5px; text-transform: uppercase;
       padding: 8px 16px;
-      transition: background .2s, color .2s;
-      cursor: default;
+      transition: background .2s, color .2s; cursor: default;
     }
-    .tool-chip:hover {
-      background: var(--accent);
-      color: var(--white);
-    }
+    .tool-chip:hover { background: var(--accent); color: var(--white); }
 
     /* ════════════════════════════
        PROJECTS
@@ -339,12 +327,12 @@
     .project-card:hover { background: #2a2a2c; }
     .project-card:hover::after { width: 100%; }
     .project-card-img {
-      width: 100%; height: 200px; object-fit: cover; object-position: center;
+      width: 100%; height: 220px; object-fit: cover; object-position: center;
       display: block; filter: brightness(.85); transition: filter .3s;
     }
     .project-card:hover .project-card-img { filter: brightness(1); }
     .project-card-img-placeholder {
-      width: 100%; height: 200px;
+      width: 100%; height: 220px;
       background: linear-gradient(135deg, #2e2e30, #3a3a3c);
       display: flex; align-items: center; justify-content: center;
       font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
@@ -353,7 +341,7 @@
     .project-card-body { padding: 28px 32px 36px; }
     .project-card h3 {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 28px; font-weight: 600; letter-spacing: .5px;
+      font-size: 26px; font-weight: 600; letter-spacing: .5px;
       margin-bottom: 10px; color: var(--white);
     }
     .project-card p { font-size: 13px; line-height: 1.9; color: rgba(255,255,255,.58); }
@@ -369,8 +357,35 @@
       margin-top: 20px; font-size: 10.5px; letter-spacing: 2px;
       text-transform: uppercase; color: var(--accent);
       text-decoration: none; font-weight: 600; transition: gap .2s;
+      background: none; border: none; cursor: pointer; padding: 0;
+      font-family: 'Montserrat', sans-serif;
     }
     .project-link:hover { gap: 14px; }
+
+    /* ── Kinyerezi expandable image ── */
+    .kinyerezi-expand {
+      margin-top: 20px;
+      overflow: hidden;
+    }
+    .kinyerezi-expand-inner {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .55s cubic-bezier(0.4,0,0.2,1), opacity .4s ease;
+      opacity: 0;
+    }
+    .kinyerezi-expand-inner.open {
+      max-height: 600px;
+      opacity: 1;
+    }
+    .kinyerezi-expand-inner img {
+      width: 100%; margin-top: 16px;
+      border: 1px solid rgba(107,143,113,.3);
+      display: block;
+    }
+    .kinyerezi-expand-inner .img-caption {
+      font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+      color: rgba(255,255,255,.35); margin-top: 8px; text-align: center;
+    }
 
     /* ════════════════════════════
        REACH OUT
@@ -474,9 +489,7 @@
 
 <body>
 
-<!-- ══════════════════════════════
-     NAV
-══════════════════════════════ -->
+<!-- NAV -->
 <nav id="main-nav">
   <a href="#hero" class="nav-logo">EN</a>
   <div class="nav-links">
@@ -488,9 +501,7 @@
   </div>
 </nav>
 
-<!-- ══════════════════════════════
-     HERO
-══════════════════════════════ -->
+<!-- HERO -->
 <section id="hero">
   <div class="hero-content">
     <img class="hero-avatar"
@@ -508,9 +519,7 @@
   </a>
 </section>
 
-<!-- ══════════════════════════════
-     ABOUT ME
-══════════════════════════════ -->
+<!-- ABOUT ME -->
 <section id="about">
   <div class="section-wrap reveal">
     <div class="section-header">
@@ -541,9 +550,7 @@
   </div>
 </section>
 
-<!-- ══════════════════════════════
-     SKILLS
-══════════════════════════════ -->
+<!-- SKILLS -->
 <section id="skills">
   <div class="section-wrap reveal">
     <div class="section-header">
@@ -553,36 +560,28 @@
     </div>
     <div class="skills-body">
 
-      <!-- ── Technical Skills ── -->
       <div class="skills-col technical">
         <div class="group-subtitle">Technical Skills</div>
-
         <div class="skill-card">
           <h4>Computer Aided Drafting</h4>
           <p>Creating electrical drawings for engineering projects.</p>
         </div>
-
         <div class="skill-card">
           <h4>Circuit Design &amp; Simulation</h4>
           <p>Designing, modelling, and testing electrical circuits before physical implementation.</p>
         </div>
-
         <div class="skill-card">
           <h4>Industrial Control Systems (PLC)</h4>
           <p>Programming and troubleshooting PLCs for industrial automation and control.</p>
         </div>
-
         <div class="skill-card">
           <h4>Electrical Drawings Interpretation</h4>
           <p>Reading and interpreting technical drawings for installation and maintenance work.</p>
         </div>
-
         <div class="skill-card">
           <h4>Report Writing</h4>
           <p>Producing clear technical reports and engineering documentation.</p>
         </div>
-
-        <!-- Tools subsection under Technical -->
         <div class="tools-subsection">
           <div class="tools-subtitle">Tools &amp; Software</div>
           <div class="tools-grid">
@@ -599,32 +598,27 @@
 
       <div class="skills-divider-line"></div>
 
-      <!-- ── Soft Skills ── -->
       <div class="skills-col soft">
         <div class="group-subtitle">Professional Skills</div>
-
         <div class="skill-card">
           <h4>Communication &amp; Teamwork</h4>
           <p>Collaborating effectively with teams and clearly conveying technical ideas.</p>
         </div>
-
         <div class="skill-card">
           <h4>Analytical Problem Solving</h4>
           <p>Breaking down complex engineering problems to develop solutions.</p>
         </div>
-
         <div class="skill-card">
           <h4>Time Management</h4>
           <p>Delivering tasks on schedule while managing multiple responsibilities.</p>
         </div>
-
         <div class="skill-card">
           <h4>Presentation Skills</h4>
           <p>Presenting technical findings and project progress clearly to diverse audiences.</p>
         </div>
         <div class="skill-card">
           <h4>Leadership &amp; Coordination</h4>
-          <p>Leading group efforts, assigning roles, and keeping teams aligned on goals.</p
+          <p>Leading group efforts, assigning roles, and keeping teams aligned on goals.</p>
         </div>
       </div>
 
@@ -632,9 +626,7 @@
   </div>
 </section>
 
-<!-- ══════════════════════════════
-     PROJECTS
-══════════════════════════════ -->
+<!-- PROJECTS -->
 <section id="projects">
   <div class="section-wrap reveal">
     <div class="section-header">
@@ -644,61 +636,45 @@
     </div>
     <div class="projects-grid">
 
-      <div class="project-card">
-        <div class="project-card-img-placeholder">Add Project Image</div>
+      <!-- ══ KINYEREZI II — spans full width ══ -->
+      <div class="project-card" style="grid-column: 1 / -1;">
+        <!-- Main layout image — always visible -->
+        <img
+          class="project-card-img"
+          style="height: 320px;"
+          src="https://raw.githubusercontent.com/eliabungata/eliabungata.github.io/main/images/KINYEREZI%20II%20PLANT%20LAYOUT%20FOR%20ONE%20BLOCK.png"
+          alt="Kinyerezi II Plant Layout for One Block"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+        />
+        <div class="project-card-img-placeholder" style="display:none; height:320px;">Plant Layout Image</div>
+
         <div class="project-card-body">
-          <h3>Project Alpha</h3>
-          <p>A real-time collaborative task manager built with React, Socket.io and PostgreSQL. Supports teams of up to 200 users with live updates.</p>
+          <h3>Analysis of Kinyerezi II Combined Cycle Power Plant</h3>
+          <p>
+            A comprehensive study of the Kinyerezi II 240 MW combined cycle power plant in Dar es Salaam, Tanzania.
+            The analysis covers plant layout, thermal cycle efficiency, protection schemes, and control systems
+            for both gas and steam turbine blocks.
+          </p>
           <div class="project-tags">
-            <span class="tag">React</span><span class="tag">Socket.io</span><span class="tag">PostgreSQL</span>
+            <span class="tag">Power Systems</span>
+            <span class="tag">Protection</span>
+            <span class="tag">Combined Cycle</span>
+            <span class="tag">Control Systems</span>
+            <span class="tag">Tanzania</span>
           </div>
-          <a class="project-link" href="https://github.com/yourusername/project-alpha" target="_blank">View on GitHub <span>→</span></a>
+
+        
+
         </div>
       </div>
 
-      <div class="project-card">
-        <div class="project-card-img-placeholder">Add Project Image</div>
-        <div class="project-card-body">
-          <h3>API Gateway</h3>
-          <p>Lightweight Node.js reverse-proxy with rate limiting, JWT authentication and request logging. Handles 10,000 req/s in benchmarks.</p>
-          <div class="project-tags">
-            <span class="tag">Node.js</span><span class="tag">JWT</span><span class="tag">Redis</span>
-          </div>
-          <a class="project-link" href="https://github.com/yourusername/api-gateway" target="_blank">View on GitHub <span>→</span></a>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-card-img-placeholder">Add Project Image</div>
-        <div class="project-card-body">
-          <h3>ML Price Predictor</h3>
-          <p>Machine-learning model trained on housing data to predict property values. Deployed via FastAPI with a Next.js frontend.</p>
-          <div class="project-tags">
-            <span class="tag">Python</span><span class="tag">scikit-learn</span><span class="tag">FastAPI</span>
-          </div>
-          <a class="project-link" href="https://github.com/yourusername/ml-price" target="_blank">View on GitHub <span>→</span></a>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-card-img-placeholder">Add Project Image</div>
-        <div class="project-card-body">
-          <h3>Open-Source CLI Tool</h3>
-          <p>A developer utility for scaffolding full-stack projects with a single command. 500+ GitHub stars and 12 contributors.</p>
-          <div class="project-tags">
-            <span class="tag">CLI</span><span class="tag">TypeScript</span><span class="tag">Open Source</span>
-          </div>
-          <a class="project-link" href="https://github.com/yourusername/cli-tool" target="_blank">View on GitHub <span>→</span></a>
-        </div>
-      </div>
+     
 
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════
-     REACH OUT
-══════════════════════════════ -->
+<!-- REACH OUT -->
 <section id="contact">
   <div class="contact-hero">
     <div class="contact-inner reveal">
@@ -708,7 +684,6 @@
         <div class="section-rule"></div>
       </div>
       <p class="contact-sub">For freelance work, collaborations, and full-time opportunities — pick any channel below to connect directly.</p>
-
       <div class="contact-cards">
 
         <a class="contact-card" href="tel:+255747199336">
@@ -746,9 +721,7 @@
   </div>
 </section>
 
-<!-- ══════════════════════════════
-     FOOTER
-══════════════════════════════ -->
+<!-- FOOTER -->
 <footer>
   <span class="footer-name">ELIABU NGATA</span>
   <div class="footer-dot"></div>
@@ -756,6 +729,7 @@
 </footer>
 
 <script>
+  /* ── Nav active state ── */
   const sections = document.querySelectorAll('section[id]');
   const links    = document.querySelectorAll('.nav-link');
 
@@ -780,6 +754,7 @@
 
   sections.forEach(s => navObserver.observe(s));
 
+  /* ── Scroll reveal ── */
   const reveals = document.querySelectorAll('.reveal');
   const revealObserver = new IntersectionObserver(entries => {
     entries.forEach(e => {
@@ -791,6 +766,15 @@
   }, { threshold: 0.1 });
 
   reveals.forEach(r => revealObserver.observe(r));
+
+  /* ── Kinyerezi protection toggle ── */
+  function toggleProtection(btn) {
+    const panel = document.getElementById('protection-expand');
+    const isOpen = panel.classList.contains('open');
+    panel.classList.toggle('open');
+    btn.setAttribute('aria-expanded', !isOpen);
+    btn.innerHTML = isOpen ? 'See More &nbsp;→' : 'See Less &nbsp;↑';
+  }
 </script>
 </body>
 </html>
