@@ -327,8 +327,15 @@
     .project-card:hover { background: #2a2a2c; }
     .project-card:hover::after { width: 100%; }
     .project-card-img {
-      width: 100%; height: 220px; object-fit: cover; object-position: center;
-      display: block; filter: brightness(.85); transition: filter .3s;
+      width: 100%;
+      height: auto;
+      max-height: 520px;
+      object-fit: contain;
+      object-position: center;
+      display: block;
+      background: #111113;
+      filter: brightness(.92);
+      transition: filter .3s;
     }
     .project-card:hover .project-card-img { filter: brightness(1); }
     .project-card-img-placeholder {
@@ -714,12 +721,11 @@
       <div class="project-card" style="grid-column: 1 / -1;">
         <img
           class="project-card-img"
-          style="height: 320px;"
           src="https://raw.githubusercontent.com/eliabungata/eliabungata.github.io/main/images/KINYEREZI%20II%20PLANT%20LAYOUT%20FOR%20ONE%20BLOCK.png"
           alt="Kinyerezi II Plant Layout for One Block"
           onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
         />
-        <div class="project-card-img-placeholder" style="display:none; height:320px;">Plant Layout Image</div>
+        <div class="project-card-img-placeholder" style="display:none; height:260px;">Plant Layout Image</div>
 
         <div class="project-card-body">
           <h3>Analysis of Kinyerezi II Combined Cycle Power Plant</h3>
@@ -755,12 +761,11 @@
         <div class="project-card" style="grid-column: 1 / -1;">
           <img
             class="project-card-img"
-            style="height: 320px;"
             src="https://raw.githubusercontent.com/eliabungata/eliabungata.github.io/main/images/Simulation%20circuit%20for%20Stepper%20Motor%20Speed%20and%20Direction%20control.png"
             alt="Simulation Circuit for Stepper Motor Speed and Direction Control"
             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
           />
-          <div class="project-card-img-placeholder" style="display:none; height:320px;">Simulation Circuit Image</div>
+          <div class="project-card-img-placeholder" style="display:none; height:260px;">Simulation Circuit Image</div>
 
           <div class="project-card-body">
             <h3>Stepper Motor Speed &amp; Direction Control Using Arduino Uno R3</h3>
