@@ -387,6 +387,80 @@
       color: rgba(255,255,255,.35); margin-top: 8px; text-align: center;
     }
 
+    /* ── More Projects collapsible ── */
+    .more-projects-toggle {
+      grid-column: 1 / -1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      padding: 18px 32px;
+      background: #1e1e20;
+      border: none;
+      border-top: 1px solid #2e2e30;
+      cursor: pointer;
+      color: var(--accent);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      transition: background .25s, color .25s;
+      width: 100%;
+    }
+    .more-projects-toggle:hover {
+      background: #252527;
+      color: #8fba96;
+    }
+    .more-projects-toggle .toggle-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px; height: 24px;
+      border: 1.5px solid var(--accent);
+      border-radius: 50%;
+      transition: transform .35s ease, border-color .25s;
+    }
+    .more-projects-toggle:hover .toggle-icon {
+      border-color: #8fba96;
+    }
+    .more-projects-toggle .toggle-icon svg {
+      width: 12px; height: 12px;
+      fill: none; stroke: currentColor; stroke-width: 2.5;
+      transition: transform .35s ease;
+    }
+    .more-projects-toggle.open .toggle-icon svg {
+      transform: rotate(180deg);
+    }
+    .more-projects-toggle .toggle-line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, transparent, #3a3a3c);
+    }
+    .more-projects-toggle .toggle-line.right {
+      background: linear-gradient(to left, transparent, #3a3a3c);
+    }
+
+    /* The collapsible drawer */
+    .more-projects-drawer {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      overflow: hidden;
+      max-height: 0;
+      opacity: 0;
+      transition: max-height .6s cubic-bezier(0.4,0,0.2,1), opacity .45s ease;
+    }
+    .more-projects-drawer.open {
+      max-height: 3000px;
+      opacity: 1;
+    }
+    /* full-width cards inside drawer still span both cols */
+    .more-projects-drawer .project-card[style*="grid-column"] {
+      grid-column: 1 / -1;
+    }
+
     /* ════════════════════════════
        REACH OUT
     ════════════════════════════ */
@@ -628,7 +702,7 @@
 
 <!-- PROJECTS -->
 <section id="projects">
-  <div class="section-wrap reveal">
+  <div class="section-wrap">
     <div class="section-header">
       <span class="section-eyebrow">Work</span>
       <h2 class="section-title">Projects</h2>
@@ -664,34 +738,51 @@
         </div>
       </div>
 
-      <!-- ══ STEPPER MOTOR — NEW PROJECT ══ -->
-      <div class="project-card" style="grid-column: 1 / -1;">
-        <img
-          class="project-card-img"
-          style="height: 320px;"
-          src="images/Simulation circuit for Stepper Motor Speed and Direction control.png"
-          alt="Simulation Circuit for Stepper Motor Speed and Direction Control"
-          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-        />
-        <div class="project-card-img-placeholder" style="display:none; height:320px;">Simulation Circuit Image</div>
+      <!-- ══ SEE MORE TOGGLE BAR ══ -->
+      <button class="more-projects-toggle" id="moreToggle" onclick="toggleMoreProjects(this)" aria-expanded="false">
+        <span class="toggle-line"></span>
+        <span class="toggle-icon">
+          <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </span>
+        <span id="moreToggleLabel">See More Projects</span>
+        <span class="toggle-line right"></span>
+      </button>
 
-        <div class="project-card-body">
-          <h3>Stepper Motor Speed &amp; Direction Control Using Arduino Uno R3</h3>
-          <p>
-            Design and simulation of a speed and direction control system for a stepper motor using the Arduino Uno R3 microcontroller.
-            The project demonstrates precise step sequencing, variable speed control via PWM logic, and bidirectional motor operation —
-            simulated and validated in a circuit simulation environment before physical implementation.
-          </p>
-          <div class="project-tags">
-            <span class="tag">Arduino Uno R3</span>
-            <span class="tag">Stepper Motor</span>
-            <span class="tag">Motor Control</span>
-            <span class="tag">Embedded Systems</span>
-            <span class="tag">Simulation</span>
-            <span class="tag">Automation</span>
+      <!-- ══ COLLAPSIBLE DRAWER ══ -->
+      <div class="more-projects-drawer" id="moreProjectsDrawer">
+
+        <!-- STEPPER MOTOR PROJECT -->
+        <div class="project-card" style="grid-column: 1 / -1;">
+          <img
+            class="project-card-img"
+            style="height: 320px;"
+            src="https://raw.githubusercontent.com/eliabungata/eliabungata.github.io/main/images/Simulation%20circuit%20for%20Stepper%20Motor%20Speed%20and%20Direction%20control.png"
+            alt="Simulation Circuit for Stepper Motor Speed and Direction Control"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          />
+          <div class="project-card-img-placeholder" style="display:none; height:320px;">Simulation Circuit Image</div>
+
+          <div class="project-card-body">
+            <h3>Stepper Motor Speed &amp; Direction Control Using Arduino Uno R3</h3>
+            <p>
+              Design and simulation of a speed and direction control system for a stepper motor using the Arduino Uno R3 microcontroller.
+              The project demonstrates precise step sequencing, variable speed control via PWM logic, and bidirectional motor operation —
+              simulated and validated in a circuit simulation environment before physical implementation.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Arduino Uno R3</span>
+              <span class="tag">Stepper Motor</span>
+              <span class="tag">Motor Control</span>
+              <span class="tag">Embedded Systems</span>
+              <span class="tag">Simulation</span>
+              <span class="tag">Automation</span>
+            </div>
           </div>
         </div>
-      </div>
+
+        <!-- ADD MORE PROJECT CARDS HERE IN FUTURE -->
+
+      </div><!-- end drawer -->
 
     </div>
   </div>
@@ -786,9 +877,16 @@
         revealObserver.unobserve(e.target);
       }
     });
-  }, { threshold: 0.1 });
+  }, { threshold: 0.05, rootMargin: '0px 0px -40px 0px' });
 
   reveals.forEach(r => revealObserver.observe(r));
+
+  /* Fallback: reveal anything still hidden after 1.2s */
+  setTimeout(() => {
+    document.querySelectorAll('.reveal:not(.visible)').forEach(el => {
+      el.classList.add('visible');
+    });
+  }, 1200);
 
   /* ── Kinyerezi protection toggle ── */
   function toggleProtection(btn) {
@@ -797,6 +895,17 @@
     panel.classList.toggle('open');
     btn.setAttribute('aria-expanded', !isOpen);
     btn.innerHTML = isOpen ? 'See More &nbsp;→' : 'See Less &nbsp;↑';
+  }
+
+  /* ── More Projects drawer toggle ── */
+  function toggleMoreProjects(btn) {
+    const drawer = document.getElementById('moreProjectsDrawer');
+    const label  = document.getElementById('moreToggleLabel');
+    const isOpen = drawer.classList.contains('open');
+    drawer.classList.toggle('open');
+    btn.classList.toggle('open');
+    btn.setAttribute('aria-expanded', !isOpen);
+    label.textContent = isOpen ? 'See More Projects' : 'See Less';
   }
 </script>
 </body>
