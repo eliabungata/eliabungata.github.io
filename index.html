@@ -4,6 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Eliabu Ngata — Portfolio</title>
+
+  <!-- ══════════════════════════════════════════════
+       PERFORMANCE: Preload critical above-the-fold
+       images so they start fetching immediately,
+       before the browser parses the <body>.
+  ═══════════════════════════════════════════════ -->
+  <link rel="preload" as="image"
+        href="https://raw.githubusercontent.com/eliabungata/eliabungata.github.io/main/images/coverphoto.jpeg"
+        fetchpriority="high"/>
+  <link rel="preload" as="image"
+        href="https://raw.githubusercontent.com/eliabungata/eliabungata.github.io/main/images/My%20profile%20picture.jpg"
+        fetchpriority="high"/>
+
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -326,6 +339,8 @@
     }
     .project-card:hover { background: #2a2a2c; }
     .project-card:hover::after { width: 100%; }
+
+    /* ── Project image: uses <picture> for WebP-readiness ── */
     .project-card-img {
       width: 100%;
       height: auto;
@@ -370,24 +385,16 @@
     .project-link:hover { gap: 14px; }
 
     /* ── Kinyerezi expandable image ── */
-    .kinyerezi-expand {
-      margin-top: 20px;
-      overflow: hidden;
-    }
+    .kinyerezi-expand { margin-top: 20px; overflow: hidden; }
     .kinyerezi-expand-inner {
-      max-height: 0;
-      overflow: hidden;
+      max-height: 0; overflow: hidden;
       transition: max-height .55s cubic-bezier(0.4,0,0.2,1), opacity .4s ease;
       opacity: 0;
     }
-    .kinyerezi-expand-inner.open {
-      max-height: 600px;
-      opacity: 1;
-    }
+    .kinyerezi-expand-inner.open { max-height: 600px; opacity: 1; }
     .kinyerezi-expand-inner img {
       width: 100%; margin-top: 16px;
-      border: 1px solid rgba(107,143,113,.3);
-      display: block;
+      border: 1px solid rgba(107,143,113,.3); display: block;
     }
     .kinyerezi-expand-inner .img-caption {
       font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
@@ -397,51 +404,32 @@
     /* ── More Projects collapsible ── */
     .more-projects-toggle {
       grid-column: 1 / -1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 14px;
-      padding: 18px 32px;
-      background: #1e1e20;
-      border: none;
+      display: flex; align-items: center; justify-content: center;
+      gap: 14px; padding: 18px 32px;
+      background: #1e1e20; border: none;
       border-top: 1px solid #2e2e30;
-      cursor: pointer;
-      color: var(--accent);
+      cursor: pointer; color: var(--accent);
       font-family: 'Montserrat', sans-serif;
-      font-size: 10.5px;
-      font-weight: 700;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      transition: background .25s, color .25s;
-      width: 100%;
+      font-size: 10.5px; font-weight: 700;
+      letter-spacing: 3px; text-transform: uppercase;
+      transition: background .25s, color .25s; width: 100%;
     }
-    .more-projects-toggle:hover {
-      background: #252527;
-      color: #8fba96;
-    }
+    .more-projects-toggle:hover { background: #252527; color: #8fba96; }
     .more-projects-toggle .toggle-icon {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
+      display: inline-flex; align-items: center; justify-content: center;
       width: 24px; height: 24px;
-      border: 1.5px solid var(--accent);
-      border-radius: 50%;
+      border: 1.5px solid var(--accent); border-radius: 50%;
       transition: transform .35s ease, border-color .25s;
     }
-    .more-projects-toggle:hover .toggle-icon {
-      border-color: #8fba96;
-    }
+    .more-projects-toggle:hover .toggle-icon { border-color: #8fba96; }
     .more-projects-toggle .toggle-icon svg {
       width: 12px; height: 12px;
       fill: none; stroke: currentColor; stroke-width: 2.5;
       transition: transform .35s ease;
     }
-    .more-projects-toggle.open .toggle-icon svg {
-      transform: rotate(180deg);
-    }
+    .more-projects-toggle.open .toggle-icon svg { transform: rotate(180deg); }
     .more-projects-toggle .toggle-line {
-      flex: 1;
-      height: 1px;
+      flex: 1; height: 1px;
       background: linear-gradient(to right, transparent, #3a3a3c);
     }
     .more-projects-toggle .toggle-line.right {
@@ -451,22 +439,13 @@
     /* The collapsible drawer */
     .more-projects-drawer {
       grid-column: 1 / -1;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2px;
-      overflow: hidden;
-      max-height: 0;
-      opacity: 0;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 2px; overflow: hidden;
+      max-height: 0; opacity: 0;
       transition: max-height .6s cubic-bezier(0.4,0,0.2,1), opacity .45s ease;
     }
-    .more-projects-drawer.open {
-      max-height: 3000px;
-      opacity: 1;
-    }
-    /* full-width cards inside drawer still span both cols */
-    .more-projects-drawer .project-card[style*="grid-column"] {
-      grid-column: 1 / -1;
-    }
+    .more-projects-drawer.open { max-height: 3000px; opacity: 1; }
+    .more-projects-drawer .project-card[style*="grid-column"] { grid-column: 1 / -1; }
 
     /* ════════════════════════════
        REACH OUT
@@ -585,9 +564,20 @@
 <!-- HERO -->
 <section id="hero">
   <div class="hero-content">
+    <!--
+      PERFORMANCE NOTES on hero avatar:
+      • fetchpriority="high"  → browser prioritises this fetch above the fold
+      • decoding="async"      → decoding off the main thread, no jank
+      • No loading="lazy"     → hero image MUST load immediately (lazy would delay it)
+      • Explicit width/height → reserves layout space, prevents CLS
+    -->
     <img class="hero-avatar"
          src="https://raw.githubusercontent.com/eliabungata/eliabungata.github.io/main/images/My%20profile%20picture.jpg"
-         alt="Eliabu Ngata"/>
+         alt="Eliabu Ngata"
+         width="150"
+         height="150"
+         fetchpriority="high"
+         decoding="async"/>
     <div class="hero-text">
       <h1>ELIABU NGATA</h1>
       <div class="hero-divider"></div>
@@ -719,12 +709,26 @@
 
       <!-- ══ STEPPER MOTOR — featured (always visible) ══ -->
       <div class="project-card" style="grid-column: 1 / -1;">
-        <img
-          class="project-card-img"
-          src="https://raw.githubusercontent.com/eliabungata/eliabungata.github.io/main/images/Simulation%20circuit%20for%20Stepper%20Motor%20Speed%20and%20Direction%20control.png"
-          alt="Simulation Circuit for Stepper Motor Speed and Direction Control"
-          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-        />
+        <!--
+          <picture> lets you serve WebP to modern browsers while keeping PNG as fallback.
+          When you have a WebP version ready, add:
+            <source type="image/webp" srcset="URL_TO_WEBP_VERSION"/>
+          PERFORMANCE: NO lazy loading on the first/featured project — it's above the fold.
+          decoding="async" still off-loads decoding from the main thread.
+          Explicit width/height prevents Cumulative Layout Shift (CLS).
+        -->
+        <picture>
+          <!-- Add a <source type="image/webp" srcset="…"> here once you have WebP versions -->
+          <img
+            class="project-card-img"
+            src="https://raw.githubusercontent.com/eliabungata/eliabungata.github.io/main/images/Simulation%20circuit%20for%20Stepper%20Motor%20Speed%20and%20Direction%20control.png"
+            alt="Simulation Circuit for Stepper Motor Speed and Direction Control"
+            width="1200"
+            height="520"
+            decoding="async"
+            onerror="this.closest('picture').style.display='none'; this.closest('.project-card').querySelector('.project-card-img-placeholder').style.display='flex';"
+          />
+        </picture>
         <div class="project-card-img-placeholder" style="display:none; height:260px;">Simulation Circuit Image</div>
 
         <div class="project-card-body">
@@ -760,12 +764,25 @@
 
         <!-- KINYEREZI II PROJECT -->
         <div class="project-card" style="grid-column: 1 / -1;">
-          <img
-            class="project-card-img"
-            src="https://raw.githubusercontent.com/eliabungata/eliabungata.github.io/main/images/KINYEREZI%20II%20PLANT%20LAYOUT%20FOR%20ONE%20BLOCK.png"
-            alt="Kinyerezi II Plant Layout for One Block"
-            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-          />
+          <!--
+            PERFORMANCE: loading="lazy" here — this image is below the fold
+            (hidden in a collapsed drawer). The browser won't fetch it at all
+            until the user opens the drawer AND scrolls near it.
+            decoding="async" keeps the main thread free when it does decode.
+          -->
+          <picture>
+            <!-- Add a <source type="image/webp" srcset="…"> here once you have WebP versions -->
+            <img
+              class="project-card-img"
+              src="https://raw.githubusercontent.com/eliabungata/eliabungata.github.io/main/images/KINYEREZI%20II%20PLANT%20LAYOUT%20FOR%20ONE%20BLOCK.png"
+              alt="Kinyerezi II Plant Layout for One Block"
+              width="1200"
+              height="520"
+              loading="lazy"
+              decoding="async"
+              onerror="this.closest('picture').style.display='none'; this.closest('.project-card').querySelector('.project-card-img-placeholder').style.display='flex';"
+            />
+          </picture>
           <div class="project-card-img-placeholder" style="display:none; height:260px;">Plant Layout Image</div>
 
           <div class="project-card-body">
